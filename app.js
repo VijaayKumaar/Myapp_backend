@@ -39,18 +39,18 @@
 
 
 
-
 require('dotenv').config(); // Load the .env file
 
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 5000; // Use 3000 as the default port if POST is not specified in .env
+const port = process.env.PORT || 5000; 
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
+const { mongoUrl } = require("./keys");
 
 // Load the mongoUrl from .env
-const mongoUrl = process.env.MONGO_URL;
+// const mongoUrl = process.env.MONGO_URL;
 
 app.use(cors());
 require('./models/model');
@@ -69,8 +69,7 @@ mongoose.connection.on('error', () => {
     console.log('Not connected to MongoDB');
 });
 
-// Serving the frontend
-// app.use(express.static(path.join(__dirname, './frontend/build')));
+
 
 app.listen(port, () => {
     console.log('Server is running on port ' + port);
