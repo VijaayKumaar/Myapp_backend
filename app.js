@@ -59,8 +59,8 @@ app.use(express.json());
 app.use(require('./routes/auth'));
 app.use(require('./routes/createPost'));
 app.use(require('./routes/user'));
-mongoose.connect(mongoUrl);
-
+// mongoose.connect(mongoUrl);
+mongoose.connect("mongodb+srv://vijay:vijay@cluster0.nrnyweo.mongodb.net/?retryWrites=true&w=majority");
 mongoose.connection.on('connected', () => {
     console.log('Successfully connected to MongoDB');
 });
